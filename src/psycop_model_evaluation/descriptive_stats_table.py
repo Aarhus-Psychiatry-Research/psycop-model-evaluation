@@ -129,6 +129,10 @@ class DescriptiveStatsTable:
         ):
             return df
 
+        eval_df = pd.DataFrame(self.eval_dataset.ids).rename(
+            columns={"ids": "dw_ek_borger"}
+        )
+
         if self.eval_dataset.custom_columns is not None:
             eval_cols = [
                 self.eval_dataset.custom_columns[c]
@@ -136,8 +140,7 @@ class DescriptiveStatsTable:
                 if c.startswith("eval_")
             ]
 
-            # Check that indeces match on all eval_cols
-            eval_df = pd.concat([self.eval_dataset.ids, *eval_cols], axis=1)
+            eval_df = pd.concat([eval_df, *eval_cols], axis=1)
 
         if self.additional_columns_df is not None:
             eval_df = eval_df.merge(
