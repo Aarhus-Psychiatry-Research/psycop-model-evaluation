@@ -76,11 +76,11 @@ For an example use case, see [t2d-baseline-paper](https://github.com/Aarhus-Psyc
 | 👩‍💻 **Usage Questions**          | [GitHub Discussions]   |
 | 🗯 **General Discussion**       | [GitHub Discussions]   |
 
-<!-- [Documentation]: https://MartinBernstorff.github.io/psycop-model-evaluation/index.html
+[Documentation]: https://MartinBernstorff.github.io/psycop-model-evaluation/index.html
 [Installation]: https://MartinBernstorff.github.io/psycop-model-evaluation/installation.html
 [Tutorials]: https://MartinBernstorff.github.io/psycop-model-evaluation/tutorials.html
 [API Reference]: https://MartinBernstorff.github.io/psycop-model-evaluation/references.html
 [FAQ]: https://MartinBernstorff.github.io/psycop-model-evaluation/faq.html
 [github issue tracker]: https://github.com/MartinBernstorff/psycop-model-evaluation/issues
 [github discussions]: https://github.com/MartinBernstorff/psycop-model-evaluation/discussions
--->
+
