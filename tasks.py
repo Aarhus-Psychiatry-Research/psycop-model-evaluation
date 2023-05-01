@@ -322,7 +322,7 @@ def test(c: Context):
     """Run tests"""
     echo_header(f"{msg_type.TEST} Running tests")
     test_result: Result = c.run(
-        "pytest tests/ -n auto -rfE --failed-first -p no:cov --disable-warnings -q",
+        "pytest -n auto -rfE --failed-first -p no:cov --disable-warnings -q",
         warn=True,
         pty=NOT_WINDOWS,
     )
