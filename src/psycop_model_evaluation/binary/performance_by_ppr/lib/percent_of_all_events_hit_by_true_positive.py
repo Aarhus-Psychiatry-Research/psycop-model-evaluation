@@ -3,7 +3,8 @@ from psycop_model_training.training_output.dataclasses import EvalDataset
 
 
 def get_percentage_of_events_captured_from_eval_dataset(
-    eval_dataset: EvalDataset, positive_rate: float,
+    eval_dataset: EvalDataset,
+    positive_rate: float,
 ) -> float:
     df = pd.DataFrame(
         {

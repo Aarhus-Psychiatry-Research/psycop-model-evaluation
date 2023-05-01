@@ -10,7 +10,8 @@ def test_get_percentage_of_events_captured_from_eval_dataset(
     synth_eval_dataset: EvalDataset,
 ):
     get_percentage_of_events_captured_from_eval_dataset(
-        eval_dataset=synth_eval_dataset, postive_rate=0.02,
+        eval_dataset=synth_eval_dataset,
+        postive_rate=0.02,
     )
 
 
