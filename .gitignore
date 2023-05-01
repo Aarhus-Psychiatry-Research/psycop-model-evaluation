@@ -16,3 +16,4 @@ __pycache__/
 # Files
 *.csv
 *.png
+.*_cache
