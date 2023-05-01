@@ -121,10 +121,14 @@ def _add_commit(c: Context, msg: Optional[str] = None):
     c.run("git add .")
 
     if msg is None:
-        msg = input("Commit message: ")
+        msg = input("Commit message [any | --amend]: ")
 
-    c.run(f'git commit -m "{msg}"', pty=NOT_WINDOWS, hide=True)
-    print(f"{msg_type.GOOD} Changes added and committed")
+        if "--a" in msg:
+            c.run("git commit --amend --reuse-message=HEAD", pty=NOT_WINDOWS, hide=True)
+            print(f"{msg_type.GOOD} Changes amended")
+        else:
+            c.run(f'git commit -m "{msg}"', pty=NOT_WINDOWS, hide=True)
+            print(f"{msg_type.GOOD} Changes committed")
 
 
 def is_uncommitted_changes(c: Context) -> bool:
@@ -322,7 +326,7 @@ def test(c: Context):
     """Run tests"""
     echo_header(f"{msg_type.TEST} Running tests")
     test_result: Result = c.run(
-        "pytest tests/ -n auto -rfE --failed-first -p no:cov --disable-warnings -q",
+        "pytest src/psycop_model_evaluation/ -n auto -rfE --failed-first -p no:cov --disable-warnings -q",
         warn=True,
         pty=NOT_WINDOWS,
     )

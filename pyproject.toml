@@ -72,7 +72,7 @@ repository = "https://github.com/MartinBernstorff/psycop-model-evaluation"
 documentation = "https://MartinBernstorff.github.io/psycop-model-evaluation/"
 
 [tool.pyright]
-exclude = [".*venv*"]
+exclude = [".*venv*", "src/psycop-model-training"]
 pythonPlatform = "Darwin"
 
 [tool.ruff]

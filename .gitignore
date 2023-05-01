@@ -16,3 +16,7 @@ __pycache__/
 # Files
 *.csv
 *.png
+.*_cache
+src/psycop-model-training
+wandb
+misc: ignore
