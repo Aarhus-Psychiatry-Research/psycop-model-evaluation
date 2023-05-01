@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 import wandb
 from psycop_model_evaluation.binary.performance_by_ppr.lib.percent_of_all_events_hit_by_true_positive import (
-    get_percentage_of_events_captured,
     get_percentage_of_events_captured_from_eval_dataset,
 )
 from psycop_model_training.training_output.dataclasses import EvalDataset
