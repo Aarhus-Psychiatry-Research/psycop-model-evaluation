@@ -21,7 +21,7 @@ def test_get_percentage_of_events_captured():
         1,1,0, # Not captured
         2,1,0, # Not captured
         3,1,1, # Captured
-        3,1,0, # Not relevant: ID is 3
+        3,1,1, # Not relevant: ID is 3
         4,0,0, # Not relevant: y is 0
         """,
     )
