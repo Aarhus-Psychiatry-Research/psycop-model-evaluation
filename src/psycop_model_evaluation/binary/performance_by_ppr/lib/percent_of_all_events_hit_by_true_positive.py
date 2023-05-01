@@ -19,6 +19,9 @@ def get_percentage_of_events_captured_from_eval_dataset(
 
 def get_percentage_of_events_captured(df: pd.DataFrame) -> float:
     # Get all patients with at least one event and at least one positive prediction
+
+    # TODO: #44 How do we handle if a patient can have more than one event?
+    # Then we kind of need something like "event-id" to see whether each event was captured or not.
     df_patients_with_events = df.groupby("id").filter(lambda x: x["y"].sum() > 0)
 
     df_events_captured = df_patients_with_events.groupby("id").filter(
