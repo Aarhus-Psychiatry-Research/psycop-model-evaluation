@@ -66,7 +66,7 @@ jobs:
           else
             source .venv/bin/activate
           fi
-          pytest --durations=0 -n 2 -x --junitxml=pytest.xml --cov-report=term-missing --cov=src/ tests/
+          pytest src/psycop_model_evaluation --durations=0 -n 2 -x --junitxml=pytest.xml --cov-report=term-missing --cov=src/ tests/
 
       - name: Test report on failures
         uses: EnricoMi/publish-unit-test-result-action@v2
