@@ -230,7 +230,7 @@ def generate_performance_by_positive_rate_table(
         threshold_metrics[
             "% of all events captured"
         ] = get_percentage_of_events_captured(
-            eval_dataset=eval_dataset, positive_rate=positive_rate
+            eval_dataset=eval_dataset, positive_rate=positive_rate,
         )
 
         threshold_metrics[
