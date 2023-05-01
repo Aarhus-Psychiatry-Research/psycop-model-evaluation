@@ -18,3 +18,5 @@ __pycache__/
 *.png
 .*_cache
 src/psycop-model-training
+wandb
+misc: ignore
