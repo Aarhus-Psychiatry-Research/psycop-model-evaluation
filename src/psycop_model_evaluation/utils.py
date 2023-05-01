@@ -25,7 +25,7 @@ RAW_DATA_VALIDATION_PATH = SHARED_RESOURCES_PATH / "raw_data_validation"
 FEATURIZERS_PATH = SHARED_RESOURCES_PATH / "featurizers"
 MODEL_PREDICTIONS_PATH = SHARED_RESOURCES_PATH / "model_predictions"
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent
+PROJECT_ROOT = Path(__file__).parent
 TEST_PLOT_PATH = PROJECT_ROOT / "tests" / "plots_from_tests"
 
 
