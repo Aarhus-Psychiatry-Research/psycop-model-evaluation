@@ -11,7 +11,7 @@ def test_get_percentage_of_events_captured_from_eval_dataset(
 ):
     get_percentage_of_events_captured_from_eval_dataset(
         eval_dataset=synth_eval_dataset,
-        postive_rate=0.02,
+        positive_rate=0.02,
     )
 
 
