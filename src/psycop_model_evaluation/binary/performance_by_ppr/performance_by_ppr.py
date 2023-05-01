@@ -5,6 +5,9 @@ from typing import Optional, Union
 import numpy as np
 import pandas as pd
 import wandb
+from psycop_model_evaluation.binary.performance_by_ppr.lib.percent_of_all_events_hit_by_true_positive import (
+    get_percentage_of_events_captured,
+)
 from psycop_model_training.training_output.dataclasses import EvalDataset
 from sklearn.metrics import confusion_matrix
 
@@ -164,7 +167,7 @@ def prop_with_at_least_one_true_positve(
     eval_dataset: EvalDataset,
     positive_rate: float = 0.5,
 ) -> float:
-    """Get proportion of patients with at least one true positive prediction.
+    """Get proportion of rows with at least one true positive prediction.
 
     Args:
         eval_dataset (EvalDataset): EvalDataset object.
@@ -179,7 +182,7 @@ def prop_with_at_least_one_true_positve(
         positive_rate=positive_rate,
     )
 
-    # Return number of unique patients with at least one true positive
+    # Return number of unique rows with at least one true positive
     return round(df["id"].nunique() / len(set(eval_dataset.ids)), 4)
 
 
@@ -222,6 +225,12 @@ def generate_performance_by_positive_rate_table(
                 aggregation_method="mean",
             ),
             0,
+        )
+
+        threshold_metrics[
+            "% of all events captured"
+        ] = get_percentage_of_events_captured(
+            eval_dataset=eval_dataset, positive_rate=positive_rate
         )
 
         threshold_metrics[
