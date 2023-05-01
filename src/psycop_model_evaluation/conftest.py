@@ -31,16 +31,12 @@ def synth_eval_df() -> pd.DataFrame:
     for col in [col for col in df.columns if "timestamp" in col]:
         df[col] = pd.to_datetime(df[col])
 
+    df = add_eval_column(df)
+
     return df
 
 
-@pytest.fixture()
-def synth_eval_dataset(synth_eval_df: pd.DataFrame) -> EvalDataset:
-    """Load synthetic data."""
-    df = synth_eval_df
-
-    df = add_eval_column(df)
-
+def df_to_synth_eval_dataset(df: pd.DataFrame) -> EvalDataset:
     return EvalDataset(
         ids=df["dw_ek_borger"],
         y=df["label"],
@@ -52,3 +48,20 @@ def synth_eval_dataset(synth_eval_df: pd.DataFrame) -> EvalDataset:
         custom_columns={"eval_n_hbac1_count": df["eval_n_hbac1_count"]},
         pred_time_uuids=df["dw_ek_borger"].astype(str) + df["timestamp"].astype(str),
     )
+
+
+@pytest.fixture()
+def synth_eval_dataset(synth_eval_df: pd.DataFrame) -> EvalDataset:
+    """Load synthetic data."""
+    return df_to_synth_eval_dataset(synth_eval_df)
+
+
+@pytest.fixture()
+def subsampled_eval_dataset(synth_eval_df: pd.DataFrame) -> EvalDataset:
+    # Set seed
+    seed = 42
+
+    # Subsampled df
+    df = synth_eval_df.sample(frac=0.1, random_state=seed)
+
+    return df_to_synth_eval_dataset(df)
