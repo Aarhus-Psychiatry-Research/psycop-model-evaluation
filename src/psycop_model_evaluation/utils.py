@@ -26,7 +26,7 @@ FEATURIZERS_PATH = SHARED_RESOURCES_PATH / "featurizers"
 MODEL_PREDICTIONS_PATH = SHARED_RESOURCES_PATH / "model_predictions"
 
 PROJECT_ROOT = Path(__file__).parent
-TEST_PLOT_PATH = PROJECT_ROOT / "tests" / "plots_from_tests"
+TEST_PLOT_PATH = PROJECT_ROOT / "test_data" / "plots_from_tests"
 
 
 class BaseModel(PydanticBaseModel):
